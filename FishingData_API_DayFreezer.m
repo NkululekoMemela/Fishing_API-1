@@ -56,13 +56,13 @@ function PerDayTable = DayFreezercatchDDL(ConsolidatedTable)
       lst=[];
       for val=ii                                                                % loop over day product entries (1    21    36    56    66    86   111   131   146   166   186   206   221   226   236   246   261   271)
           lstDrags=[];
-        for r=1:numel(UniqueProd)                                                 %loop over number of products (1     2     3     4     5)
+        for r=1:numel(UniqueProd)                                               %loop over number of products (1     2     3     4     5)
           lst2=[];
            for DayVal=kk(s):numel(UniqueProd):ij(s)                             %loop over same products per drag (1     6    11    16)
                SameProd=TransposeSC(1,(DayVal+r-1));                            %This is the iteration logic that appends the individual species "number of bins"
                lst2(end+1)=SameProd;                                            %appending the list
            end
-           lstDrags=[lstDrags;nanmean(lst2)];%This is the different line from the next loop
+           lstDrags=[lstDrags;nanmean(lst2)];                                   %This is the different line from the next loop
         end
           s=s+1;
           lst=[lst;lstDrags];                                                   %appending the list
